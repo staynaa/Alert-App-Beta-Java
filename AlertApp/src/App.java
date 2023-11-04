@@ -68,12 +68,16 @@ public class App extends UserAction{
             uem= input.next();
             System.out.println("Phone Number: ");
             upn= input.next();
-            Statement stmt = con.createStatement();
-            System.out.println("STATEMENT WORKED");
-            SQL = "SELECT fname, lname FROM userinfo WHERE email= '"+ uem +"' AND userphone= '+1"+ upn +"' "; //query to find existing account and log in
-            ResultSet rs= stmt.executeQuery(SQL); //executes the query
-            System.out.println("QUERY WORKED");
+            // SQL = "SELECT fname, lname FROM userinfo WHERE email= ? AND userphone= ?"; //query to find existing account and log in
+            SQL = "SELECT `fname`, `lname` FROM `userinfo` WHERE `email`= ? AND `userphone`= ?";
+            PreparedStatement stmt = con.prepareStatement(SQL);
+            stmt.setString(1, uem);
+            stmt.setString(2, "+1"+upn);
+            // DEBUG System.out.println("STATEMENT WORKED");
+            ResultSet rs= stmt.executeQuery(); //executes the query
+            // DEBUG System.out.println("QUERY WORKED");
             while(rs.next()){
+                // DEBUG System.out.println("IN WHILE LOOP");
                 ufn = rs.getString("fname");
                 uln = rs.getString("lname");
                 UserAction ua= new UserAction(ufn,uln);
