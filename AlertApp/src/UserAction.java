@@ -29,27 +29,6 @@ public class UserAction {
         else System.exit(-1);
     }
 
-    // public void addEmergencyContact() {
-    //     Scanner input= new Scanner(System.in);
-    //     String cfname,clname,contphone, SQL;
-    //     System.out.println("This is where you add an emergency contact");
-    //     try{
-    //         System.out.println("Enter information for following fields\nContact's First Name: ");
-    //         cfname = input.next();
-    //         System.out.println("Contact's Last Name: ");
-    //         clname = input.next();
-    //         System.out.println("Contact's Phone Number: ");
-    //         contphone = input.next();
-    //         System.out.println("Registering Emergency Contact.....");
-    //         input.close();
-    //         Statement stmt = uacon.createStatement();
-    //         SQL = "INSERT INTO emergencycont VALUES (NULL, "+this.userID+",'" + cfname + "', '" + clname + "','" + "'+1" + contphone + "', 1)"; //query to insert new contact
-    //         stmt.executeUpdate(SQL); //executes the query
-    //     } catch(SQLException e){
-    //         System.out.println("SQL EXCEPTION in add emergency");
-    //     }
-    // }
-
     public void alertContact() {
         System.out.println("Type your Alert Message\nEnter Text: ");
         
